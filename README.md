@@ -17,10 +17,11 @@
 5. [Step 4: Set Up Playback Apps](#-step-4-set-up-playback-apps)
 6. [Step 5: Remote Access with Tailscale](#-step-5-remote-access-with-tailscale)
 7. [Step 6: Add Radio Stations](#-step-6-add-radio-stations)
-8. [Step 7: View Your Listening Stats (Navidrome Wrapped)](#-step-7-view-your-listening-stats-navidrome-wrapped)
-9. [Audio Quality Tips](#-audio-quality-tips)
-10. [Alternatives Considered](#-alternatives-considered)
-11. [Quick Reference Links](#-quick-reference-links)
+8. [Step 7: Create Smart Playlists](#-step-7-create-smart-playlists)
+9. [Step 8: View Your Listening Stats (Navidrome Wrapped)](#-step-8-view-your-listening-stats-navidrome-wrapped)
+10. [Audio Quality Tips](#-audio-quality-tips)
+11. [Alternatives Considered](#-alternatives-considered)
+12. [Quick Reference Links](#-quick-reference-links)
 
 ---
 
@@ -36,6 +37,7 @@ Here's the full stack at a glance:
 | **Essentia Music Tagger** | AI-powered genre/mood tagging (replaces Picard's genres) | [GitHub](https://github.com/WB2024/Essentia-to-Metadata) |
 | **Artist Genre Metadata Enforcer** | Define your own genre per artist, enforce it everywhere | [GitHub](https://github.com/WB2024/Artist-Genre-Metadata-Enforcer) |
 | **Navidrome Radio Station Manager** | Add internet radio stations to Navidrome | [GitHub](https://github.com/WB2024/Add-Navidrome-Radios) |
+| **Navidrome Smart Playlist Creator** | Build dynamic `.nsp` smart playlists via guided menus — no JSON editing | [GitHub](https://github.com/WB2024/Navidrome-SmartPlaylist-Generator-nsp) |
 | **Navidrome Wrapped** | Spotify Wrapped–style listening stats | [GitHub](https://github.com/mdeik/Navidrome-Wrapped) |
 | **Feishin** | Desktop music player (Spotify-like UI) | [GitHub](https://github.com/jeffvli/feishin) |
 | **Symfonium** | Mobile music player (Android) | [symfonium.app](https://symfonium.app/) |
@@ -442,7 +444,70 @@ Select stations → type "add" → they appear in Navidrome immediately!
 
 ---
 
-## 📊 Step 7: View Your Listening Stats (Navidrome Wrapped)
+## 🎼 Step 7: Create Smart Playlists
+
+📦 **[Navidrome Smart Playlist Creator](https://github.com/WB2024/Navidrome-SmartPlaylist-Generator-nsp)**
+
+Navidrome supports **Smart Playlists** — dynamic playlists defined as rules stored in `.nsp` files that automatically populate based on criteria you define (e.g., "all songs I've loved from the 80s" or "high-quality tracks I haven't played recently"). This fully guided CLI tool builds those rule files through numbered menus — no JSON editing, no memorising field names or operator syntax.
+
+### Features
+
+- **30+ ready-made presets** — deploy instant playlists covering essentials, discovery, moods, decades, quality, and complex nested logic
+- **One-click deploy all** — save every preset at once with a single menu choice
+- **100+ fields** — every field Navidrome supports, from core metadata to MusicBrainz IDs and ReplayGain values
+- **Nested rule groups** — create sub-groups with their own AND/OR logic (e.g. "loved OR highly rated" inside an AND query)
+- **Multi-field sorting** — sort by multiple fields with individual ascending/descending direction
+- **Fully guided numbered menus** — no typing field names, operators, or syntax
+- **Beautiful UI** — enhanced display via [`rich`](https://github.com/Textualize/rich) (optional, degrades gracefully)
+
+### Install & Run
+
+```bash
+git clone https://github.com/WB2024/Navidrome-SmartPlaylist-Generator-nsp.git
+cd Navidrome-SmartPlaylist-Generator-nsp
+pip install rich       # Optional — recommended for best UI
+python navidrome_smart_playlist_creator.py
+```
+
+On first run, set your playlist directory — the folder where Navidrome scans for `.nsp` files. The path is saved and remembered for future sessions.
+
+### How It Works
+
+The wizard guides you through five steps to build a playlist:
+
+1. **Rule logic** — ALL must match (AND) or ANY can match (OR)
+2. **Rules** — pick a field → operator → value. Supports **nested rule groups** for complex AND/OR logic to any depth, with a live summary panel showing your rules as you build
+3. **Sort order** — one or multiple sort fields, each with ascending/descending direction
+4. **Limit** — optionally cap the number of tracks
+5. **Details** — name and optional description
+
+After completing the wizard, the generated JSON is previewed and you confirm before saving.
+
+### Deploy Preset Playlists
+
+Choose **Deploy preset playlists** from the main menu to instantly save 30+ ready-made `.nsp` files:
+
+| Category | Examples |
+|----------|----------|
+| **Essentials** | Recently Played, Recently Added, Most Played, Never Played, Loved Tracks, Top Rated |
+| **Discovery** | Fresh Blood, Vinyl Roulette, One-Hit Wonders, Album Openers |
+| **Rediscovery** | Forgotten Gems, Comebacks, Buried Treasure |
+| **Moods & Vibes** | Long Drives, Short & Sweet, Slow Burners, Bangers Only |
+| **Quality & Format** | FLAC Attack, Hi-Res Audio, Lossy Leftovers |
+| **Decades** | 60s–2010s Classics (one preset per decade) |
+| **Complex / Nested** | 80s Gold, The Collector, Guilty Pleasures, The Graveyard |
+
+### How Navidrome Imports Playlists
+
+Place `.nsp` files anywhere inside your music library folder — Navidrome finds them automatically on the next library scan. Smart Playlists refresh automatically when accessed.
+
+> 💡 **Recommended:** Create a `SmartPlaylists/` subfolder inside your music library root and save all `.nsp` files there to keep them organised.
+
+> ⚠️ **Docker users:** If you use a separate `PlaylistsPath` volume, place `.nsp` files inside your music library folder instead — that's the most reliable approach across all Navidrome versions.
+
+---
+
+## 📊 Step 8: View Your Listening Stats (Navidrome Wrapped)
 
 📦 **[Navidrome Wrapped](https://github.com/mdeik/Navidrome-Wrapped)**
 
@@ -551,6 +616,7 @@ These alternatives are worth knowing about:
 | Essentia Music Tagger (AI Genres) | [github.com/WB2024/Essentia-to-Metadata](https://github.com/WB2024/Essentia-to-Metadata) |
 | Artist Genre Metadata Enforcer | [github.com/WB2024/Artist-Genre-Metadata-Enforcer](https://github.com/WB2024/Artist-Genre-Metadata-Enforcer) |
 | Navidrome Radio Station Manager | [github.com/WB2024/Add-Navidrome-Radios](https://github.com/WB2024/Add-Navidrome-Radios) |
+| Navidrome Smart Playlist Creator | [github.com/WB2024/Navidrome-SmartPlaylist-Generator-nsp](https://github.com/WB2024/Navidrome-SmartPlaylist-Generator-nsp) |
 | Navidrome Wrapped (Listening Stats) | [github.com/mdeik/Navidrome-Wrapped](https://github.com/mdeik/Navidrome-Wrapped) |
 
 ---
@@ -567,9 +633,10 @@ Here's the recommended sequence for setting everything up from scratch:
 5. 🎧  Install Feishin (desktop) and/or Symfonium (mobile)
 6. 🌐  Set up Tailscale for remote access
 7. 📻  Add radio stations
-8. 📊  View your listening stats with Navidrome Wrapped
-9. 🔊  Optimize your audio hardware chain
-10. 🎶  Enjoy your music!
+8. 🎼  Create smart playlists
+9. 📊  View your listening stats with Navidrome Wrapped
+10. 🔊  Optimize your audio hardware chain
+11. 🎶  Enjoy your music!
 ```
 
 ---
